@@ -1,0 +1,17 @@
+configuration {
+    show-icons: true;
+    drun-display-format:        "{name}";
+    disable-history: false;
+    hide-scrollbar: true;
+    window-format: " [{w}]\t\t{t:0}";
+    sidebar-mode: true;
+    display-run: "";
+    display-drun: "";
+    display-window: "";
+    show-match: true;
+    modi: "run,drun,window";
+    me-select-entry: "MousePrimary";
+    me-accept-entry: "!MousePrimary";
+}
+
+@theme "~/.config/rofi/theme.rasi"

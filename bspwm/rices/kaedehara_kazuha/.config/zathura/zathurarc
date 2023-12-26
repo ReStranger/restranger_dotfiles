@@ -1,0 +1,7 @@
+set selection-clipboard clipboard
+
+map <C-l> feedkeys ":blist <Tab>"
+map <C-m> feedkeys ":bmark"
+map <C-u> feedkeys ":bdelete "
+
+include zathura-gruvbox-dark-hard
