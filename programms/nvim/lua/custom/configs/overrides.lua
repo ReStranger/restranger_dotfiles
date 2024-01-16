@@ -13,6 +13,7 @@ M.treesitter = {
     "c",
     "cpp",
     "rust",
+    "toml",
     "markdown",
     "markdown_inline",
     "bash",
@@ -51,6 +52,8 @@ M.mason = {
     "debugpy",
     -- bash stuff
     "bash-language-server",
+    -- rust
+    "rust-analyzer",
   },
 }
 
