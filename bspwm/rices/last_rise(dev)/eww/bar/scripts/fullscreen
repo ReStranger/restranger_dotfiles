@@ -1,0 +1,11 @@
+#!/bin/bash
+
+while :
+do
+if [[ -z $(bspc query --node focused.fullscreen --nodes) ]]; then
+  eww -c "$HOME"/.config/eww/bar open bar
+else
+  eww -c "$HOME"/.config/eww/bar close-all
+fi
+sleep 0.2
+done 
