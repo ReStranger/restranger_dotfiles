@@ -1,0 +1,157 @@
+*{
+  all: unset;
+  font-family: feather, JetBrainsMonoNL NF;
+}
+
+
+
+.bar {
+  background-color: #191724;
+  border-radius: 10px;
+}
+
+.left {
+  padding-left: 5px;
+}
+
+.center {
+}
+.right {
+  padding-right: 5px;
+}
+
+
+
+.launcher_icon {
+
+  background-color: #b9a2e7;
+  color: #191724;
+  border-radius: 8px;
+  margin: 8px 5px 8px 5px;
+  padding-left: 7px;
+  padding-right: 11px;
+  font-size: 16px;
+}
+
+
+
+
+//
+// WORKSPASE
+//
+
+.works {
+  font-size: 14px;
+  font-weight: normal;
+  margin: 5px 0px 5px 0px;
+  padding: 3px;
+  background-color: #15131f;
+  border-radius: 10px;
+
+}
+
+.0c, .01, .02, .03, .04, .05, .06, .07, .08, .09, .00,
+.0c1, .0c2, .0c3, .0c4, .0c5, .0c6, .0c7, .0c8, .0c9, .0c0,
+.011, .022, .033, .044, .055, .066, .077, .088, .099, .000 {
+  padding-right: 16px;
+  padding-left: 10px;
+}
+
+/* Unoccupied */
+.0c {
+  color: #3e424f;
+}
+
+/* Occupied */
+.01, .02, .03, .04, .05, .06, .07, .08, .09, .00 {
+  color: #7aa2f7;
+}
+
+/* Foccusef */
+.0c1, .0c2, .0c3, .0c4, .0c5, .0c6, .0c7, .0c8, .0c9, .0c0,
+.011, .022, .033, .044, .055, .066, .077, .088, .099, .000 {
+  background-color: #b9a2e7;
+  color: #191724;
+  border-radius: 8px;
+}
+
+
+
+
+
+
+// 
+// RIGHT 
+//
+
+// TRAY
+.tray {
+  background-color: #b9a2e7;
+  border-radius: 8px;
+  margin: 8px 5px 8px 5px;
+}
+
+.tray_icon {
+  color: #191724;
+  padding-left: 6px;
+  padding-right: 6px;
+  font-size: 16px;
+  font-weight: normal;
+}
+
+.cpu_info {
+  background-color: #b9a2e7;
+  color: #191724;
+  border-radius: 8px;
+  margin: 8px 5px 8px 5px;
+  padding-left: 7px;
+  padding-right: 7px;
+}
+
+.gpu_info {
+  background-color: #b9a2e7;
+  color: #191724;
+  border-radius: 8px;
+  margin: 8px 5px 8px 5px;
+  padding-left: 7px;
+  padding-right: 7px;
+}
+
+.mem_info {
+  background-color: #b9a2e7;
+  color: #191724;
+  border-radius: 8px;
+  margin: 8px 5px 8px 5px;
+  padding-left: 7px;
+  padding-right: 7px;
+}
+
+.keyboard_layout {
+  font-size: 15px;
+  background-color: #b9a2e7;
+  color: #191724;
+  border-radius: 8px;
+  margin: 8px 5px 8px 5px;
+  padding-left: 7px;
+  padding-right: 7px;
+}
+
+// CLOCK
+.time {
+  background-color: #2c2740;
+  margin: 8px 5px 8px 5px ;
+  font-size: 14px;
+  padding-left: 8px;
+  padding-right: 8px;
+  border-radius: 8px;
+}
+
+// POWER MENU
+.poweroff_menu {
+  background-color: #ff4d4d;
+  border-radius: 8px;
+  margin: 8px 5px 8px 5px;
+  padding-left: 8px;
+  padding-right: 11px;
+  padding-bottom: 2px;
+}

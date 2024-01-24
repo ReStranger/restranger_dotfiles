@@ -1,0 +1,189 @@
+(defwindow bar
+           :monitor 0
+           :class "bar"
+           :geometry (geometry :x "0px"
+                               :y "6px"
+                               :width "1910px"
+                               :height "34px"
+                               :anchor "top center"
+                     )
+           :stacking "bg"
+           :reserve (struts :distance "40px" :side "top")
+           :windowtype "dock"
+           :wm-ignore false
+  (bar)
+)
+
+(defwidget bar []
+  (box :class "bar"
+       :orientation "h" 
+		   :vexpand "false" 
+		   :hexpand "false"
+    (left)
+    (center)
+    (right)
+  )
+)
+
+(defwidget left []
+  (box :class "left"
+       :space-evenly "false" 
+       :halign "start"
+    (launcher)
+  )
+)
+
+(defwidget launcher []
+	(box :orientation "h" 
+		   :space-evenly "false" 
+  	(button :class "launcher_icon" 
+		   	    :onclick "scripts/popup launcher"  "󰣇"
+    )
+  )
+)
+
+;;
+;; CENTER BAR
+;;
+
+(defwidget center []
+  (box :class "center"
+       :space-evenly false 
+       :halign "center"
+    (workspaces)
+  )
+)
+
+(defwidget workspaces []
+	(literal :content workspace))
+(deflisten workspace "scripts/workspace")
+
+;;
+;;  RIGHT BAR
+;;
+
+(defwidget right []
+  (box :class "right"
+       :space-evenly "false" 
+       :halign "end"
+    (tray)
+    (cpu_info)
+    (gpu_info)
+    (mem_info)
+    (keyboard_layout)
+    (time)
+    (poweroff_menu)
+  )
+)
+
+(defvar tray_icon '')
+(defwidget tray []
+  (eventbox :cursor "pointer" 
+            :onclick "scripts/toggle_tray"
+    
+    (box :class "tray"
+      (label :class "tray_icon"
+             :text "${tray_icon}"
+      )
+    )
+  )
+)
+
+
+(defwidget cpu_info []
+  (eventbox :cursor "pointer" 
+            :onclick ""
+    (box :class "cpu_info"
+      (label :text cpu_state)
+    )
+  )
+)
+(defpoll cpu_state :interval "2s" "echo \" $(top -bn1 | grep \"Cpu(s)\" | awk \'{print $2 + $4}\')\"%")
+
+(defwidget gpu_info []
+  (eventbox :cursor "pointer" 
+            :onclick ""
+    (box :class "gpu_info"
+      (label :text gpu_state)
+    )
+  )
+)
+(defpoll gpu_state :interval "2s" "echo \" $(nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits | awk \'{ print \"\"$1\"%\"}\')\"")
+
+(defwidget mem_info []
+  (eventbox :cursor "pointer" 
+            :onclick ""
+    (box :class "mem_info"
+      (label :text mem_state)
+    )
+  )
+)
+(defpoll mem_state :interval "2s" "echo \" $(free -m | awk \'NR==2{printf \"%s\n\", $3*100/$2 }\' | awk -F \".\" \'{print$1}\')%\"")
+
+(defwidget keyboard_layout []
+  (eventbox :cursor "pointer"
+            :onclick ""
+    (box :class "keyboard_layout"
+    (label :text keyboard_state)
+    )
+  )
+)
+(defpoll keyboard_state :interval "0.2s" "scripts/keyboard_layout")
+
+(defwidget time []
+	(box	:orientation "h" 
+			  :class "time" 
+			  :halign "end"
+    (eventbox :cursor "pointer" 
+	    (button	:onclick "scripts/popup calendar"	
+			        :class "time-hour" time_h_m
+      )
+    )
+  )
+)
+
+(defpoll time_h_m	:interval "1s"	"h=$(date '+%H') && m=$(date '+%M') && echo $h:$m")
+
+
+
+;;
+;; CALENDAR
+;;
+(defwindow calendar 
+           :geometry (geometry :x "-10px" 
+						                   :y "44px" 
+						                   :width "270px" 
+						                   :height "60px"
+                               :anchor "top right"
+                     )
+  (cal)
+)
+
+(defwidget cal []
+	(box :class "cal-box" 
+		   :orientation "h"
+	  (box :class "cal-inner-box"
+	    (calendar :class "cal" 
+			          :day calendar_day 
+			          :month calendar_month 
+			          :year calendar_year
+      )
+    )
+  )
+)
+
+(defpoll calendar_day :interval "10h" "date '+%d'")
+(defpoll calendar_month :interval "10h" "scripts/calendar")
+(defpoll calendar_year :interval "10h" "date '+%Y'")
+
+
+(defwidget poweroff_menu []
+
+  (eventbox :cursor "pointer" 
+    (button :class "poweroff_menu"
+            :onclick "" ""
+    )
+  )
+)
+	(defvar power false)
+
