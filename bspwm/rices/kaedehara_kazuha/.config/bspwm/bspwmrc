@@ -42,3 +42,5 @@ bspc rule -a Gcolor3 state=floating floating=on size=800x315
 bspc rule -a IVPN state=floating floating=on size=760x600
 bspc rule -a steam desktop='^7' state=tiled follow=no
 bspc rule -a QjackCtl state=floating follow=on
+bspc rule -a Yad state=floating follow=on
+bspc rule -a stalonetray state=floating follow=on

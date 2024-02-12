@@ -123,3 +123,5 @@ alias ssh.open="sudo systemctl start zerotier-one.service && sudo systemctl star
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 export PATH=$PATH:/home/restranger/.spicetify
+
+clear && clear
