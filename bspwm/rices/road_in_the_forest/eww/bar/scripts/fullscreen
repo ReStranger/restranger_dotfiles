@@ -7,5 +7,4 @@ if [[ -z $(bspc query --node focused.fullscreen --nodes) ]]; then
 else
   eww -c "$HOME"/.config/eww/bar close-all
 fi
-sleep 0.2
 done 
