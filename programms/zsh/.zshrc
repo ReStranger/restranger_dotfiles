@@ -110,18 +110,18 @@ alias la="lsd -a"
 alias lt="lsd --tree"
 alias rr="ranger"
 alias tmux="tmux -u"
+alias mkvenv="python -m venv .venv"
 
 alias :q="exit"
 alias Жй="exit"
 alias :Q="exit"
 alias ЖЙ="exit"
 
-alias find.trash="sudo find / | grep -v '^$HOME/.cache/\|^$HOME/.icons/' 2>/dev/null | grep"
+alias find.trash="sudo find / | grep -vE '/home/restranger/.cache|/home/restranger/.icons|/root/.cache|/root/.icons|/var/log|/tmp' | grep"
 alias ssh.kali="ssh 192.168.122.187 -l restranger"
 alias ssh.open="sudo systemctl start zerotier-one.service && sudo systemctl start sshd.service"
+alias gentoo-chroot="~/.config/scripts/GentooChroot"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 export PATH=$PATH:/home/restranger/.spicetify
-
-clear && clear
