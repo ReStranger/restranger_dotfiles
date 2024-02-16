@@ -15,7 +15,9 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="powerlevel10k/powerlevel10k"
+# ZSH_THEME="powerlevel10k/powerlevel10k"
+ZSH_THEME="darkblood"
+# ZSH_THEME="random"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -103,11 +105,11 @@ fi
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
-alias shell-color-scripts="$HOME/.config/shell-color-scripts/random_script.sh"
+alias shell-color-scripts="$HOME/.config/scripts/shell-color-scripts/random_script.sh"
 alias vi="nvim"
-alias ls="lsd"
-alias la="lsd -a"
-alias lt="lsd --tree"
+alias ls="lsd --color=auto"
+alias la="lsd --color=auto -a"
+alias lt="lsd --color=auto --tree"
 alias rr="ranger"
 alias tmux="tmux -u"
 alias mkvenv="python -m venv .venv"
