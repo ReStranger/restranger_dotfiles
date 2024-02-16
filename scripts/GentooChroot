@@ -1,0 +1,9 @@
+#!/bin/bash
+sudo mount --types proc /proc /mnt/sda1/Documents/Gentoo/proc 
+sudo mount --rbind /sys /mnt/sda1/Documents/Gentoo/sys
+sudo mount --make-rslave /mnt/sda1/Documents/Gentoo/sys
+sudo mount --rbind /dev /mnt/sda1/Documents/Gentoo/dev
+sudo mount --make-rslave /mnt/sda1/Documents/Gentoo/dev
+sudo mount --bind /run /mnt/sda1/Documents/Gentoo/run
+sudo mount --make-slave /mnt/sda1/Documents/Gentoo/run
+su -c "chroot /mnt/sda1/Documents/Gentoo/ /bin/zsh"
