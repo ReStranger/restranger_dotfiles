@@ -18,6 +18,7 @@ M.treesitter = {
     "markdown_inline",
     "bash",
     "python",
+    "dockerfile",
     "yuck",
   },
   indent = {
