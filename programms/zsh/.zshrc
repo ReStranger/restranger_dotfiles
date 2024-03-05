@@ -15,9 +15,8 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-# ZSH_THEME="powerlevel10k/powerlevel10k"
-ZSH_THEME="darkblood"
-# ZSH_THEME="random"
+ZSH_THEME="powerlevel10k/powerlevel10k"
+#ZSH_THEME="darkblood"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -89,29 +88,77 @@ autoswitch_virtualenv $plugins
 ZVM_VI_INSERT_ESCAPE_BINDKEY=jj
 zvm_after_init_commands+=("bindkey '^[[A' up-line-or-beginning-search" "bindkey '^[[B' down-line-or-beginning-search")
 export ZSH_COMPDUMP=$ZSH/cache/.zcompdump-$HOST
+source /usr/share/doc/git-extras/git-extras-completion.zsh
 source $ZSH/oh-my-zsh.sh
 
+# User configuration
+# Arch Command Not Found
+function command_not_found_handler {
+    local purple='\e[1;35m' bright='\e[0;1m' green='\e[1;32m' reset='\e[0m'
+    printf 'zsh: command not found: %s\n' "$1"
+    local entries=(
+        ${(f)"$(/usr/bin/yay -F --machinereadable -- "/usr/bin/$1")"}
+    )
+    if (( ${#entries[@]} ))
+    then
+        printf "${bright}$1${reset} may be found in the following packages:\n"
+        local pkg
+        for entry in "${entries[@]}"
+        do
+            # (repo package version file)
+            local fields=(
+                ${(0)entry}
+            )
+            if [[ "$pkg" != "${fields[2]}" ]]
+            then
+                printf "${purple}%s/${bright}%s ${green}%s${reset}\n" "${fields[1]}" "${fields[2]}" "${fields[3]}"
+            fi
+            printf '    /%s\n' "${fields[4]}"
+            pkg="${fields[2]}"
+        done
+    fi
+    return 127
+}
+# export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
+# Preferred editor for local and remote sessions
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='mvim'
+# fi
 if [[ -z $DISPLAY && $(tty) == /dev/tty1 ]]; then
-  XDG_SESSION_TYPE=x11 GDK_BACKEND=x11 exec startx
+  exec bash /home/restranger/.config/hypr/scripts/nvidia-settings-before-hyprland-fix
 fi
 
 if [[ -d "$HOME/.local/bin/platform-tools/" ]] ; then
     PATH="$HOME/.local/bin/platform-tools/:$PATH"
 fi
+
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
-alias shell-color-scripts="$HOME/.config/scripts/shell-color-scripts/random_script.sh"
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
+#
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
+alias neofetch="~/.config/neofetch/random_img.sh"
+alias shell-color-scripts="~/.config/scripts/shell-color-scripts/random_script.sh"
 alias vi="nvim"
+alias lg="lazygit"
 alias ls="lsd --color=auto"
 alias la="lsd --color=auto -a"
 alias lt="lsd --color=auto --tree"
 alias rr="ranger"
 alias tmux="tmux -u"
+alias uwufetch="uwufetch -i"
 alias mkvenv="python -m venv .venv"
 
 alias :q="exit"
@@ -123,7 +170,9 @@ alias find.trash="sudo find / | grep -vE '/home/restranger/.cache|/home/restrang
 alias ssh.kali="ssh 192.168.122.187 -l restranger"
 alias ssh.open="sudo systemctl start zerotier-one.service && sudo systemctl start sshd.service"
 alias gentoo-chroot="~/.config/scripts/GentooChroot"
+alias random_wallpaper="~/.config/scripts/WallColorParser/random_wallpaper"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
 export PATH=$PATH:/home/restranger/.spicetify
