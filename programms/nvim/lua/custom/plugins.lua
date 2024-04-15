@@ -159,7 +159,15 @@ local plugins = {
       },
     }
   end,
-  },  -- override plugin configs
+  },
+  {
+		"theRealCarneiro/hyprland-vim-syntax",
+		dependencies = { "nvim-treesitter/nvim-treesitter" },
+		ft = "hypr",
+	},
+
+  -- override plugin configs
+
   {
     "williamboman/mason.nvim",
     opts = overrides.mason
