@@ -10,8 +10,8 @@ M.ui = {
   hl_add = {},
   hl_override = {},
   changed_themes = {},
-  theme_toggle = { "montagnes_violettes", "one_light" },
-  theme = "montagnes_violettes", -- default theme
+  theme_toggle = { "catppuccin", "one_light" },
+  theme = "catppuccin", -- default theme
   transparency = false,
   lsp_semantic_tokens = false, -- needs nvim v0.9, just adds highlight groups for lsp semantic tokens
 

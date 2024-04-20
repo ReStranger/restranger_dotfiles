@@ -39,6 +39,8 @@ M.mason = {
     "css-lsp",
     "html-lsp",
     "typescript-language-server",
+    "eslint-lsp",
+    "js-debug-adapter",
     "deno",
     "prettier",
 
