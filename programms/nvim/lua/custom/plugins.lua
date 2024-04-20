@@ -44,6 +44,7 @@ local plugins = {
   {
     "mfussenegger/nvim-dap",
     config = function(_, opts)
+      require "custom.configs.dap"
       require("core.utils").load_mappings("dap")
     end
   },
@@ -160,14 +161,7 @@ local plugins = {
     }
   end,
   },
-  {
-		"theRealCarneiro/hyprland-vim-syntax",
-		dependencies = { "nvim-treesitter/nvim-treesitter" },
-		ft = "hypr",
-	},
-
   -- override plugin configs
-
   {
     "williamboman/mason.nvim",
     opts = overrides.mason
