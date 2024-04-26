@@ -24,11 +24,11 @@ error_symbol = "[• 󰅙](bold fg:#eba0ac) "
 disabled = true
 
 [git_branch]
-style = "bg: white"
+style = "bg: #eba0ac"
 symbol = "󰘬"
 truncation_length = 4
 truncation_symbol = ""
-format = " • [](bold fg:white)[$symbol $branch(:$remote_branch)](fg:#1e1e2e bg:white)[ ](bold fg:white)"
+format = " • [](bold fg:#eba0ac)[$symbol $branch(:$remote_branch)](fg:#1e1e2e bg:#eba0ac)[](bold fg:#eba0ac)"
 
 [git_commit]
 commit_hash_length = 4
@@ -102,7 +102,28 @@ format = '[](bold fg:#f5c2e7)[$path ]($style)[](bold fg:#f5c2e7) •• '
 "Music" = " 󰎈 "
 "Pictures" = "  "
 "Videos" = "  "
+#
+"sda1" = " 󰋊 "
+"Obsidian" = "  "
+"Books" = "  "
+"GitHub" = "  "
+"PortProton" = " 󰸷 " 
+"Games" = " 󰊗 "
+"SteamLibrary" = "  "
+#
+".android" = "  "
+".cache" = " 󰃨 "
 ".config" = " "
+".gnupg" = " 󰢬 "
+".java" = "  "
+".icons" = "  "
+".mozilla" = "  "
+".ssh" = " 󰢬 "
+".vscode" = "  "
+#
+"hyprland" = "  "
+"bspwm" = "  "
+"dwm" = "  "
 
 [cmd_duration]
 min_time = 0
