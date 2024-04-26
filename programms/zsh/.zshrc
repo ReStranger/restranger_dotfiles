@@ -15,8 +15,8 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="powerlevel10k/powerlevel10k"
-#ZSH_THEME="darkblood"
+# ZSH_THEME="powerlevel10k/powerlevel10k"
+ZSH_THEME="darkblood"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -131,7 +131,7 @@ function command_not_found_handler {
 #   export EDITOR='mvim'
 # fi
 if [[ -z $DISPLAY && $(tty) == /dev/tty1 ]]; then
-  exec bash /home/restranger/.config/hypr/scripts/nvidia-settings-before-hyprland-fix
+  exec bash /home/restranger/.config/hypr/scripts/nvidia_fix
 fi
 
 if [[ -d "$HOME/.local/bin/platform-tools/" ]] ; then
@@ -176,3 +176,4 @@ alias random_wallpaper="~/.config/scripts/WallColorParser/random_wallpaper"
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 export PATH=$PATH:/home/restranger/.spicetify
+eval "$(starship init zsh)"
