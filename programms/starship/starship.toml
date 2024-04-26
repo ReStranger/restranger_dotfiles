@@ -10,7 +10,7 @@ add_newline = false
 # $character
 # """
 format = """
- $cmd_duration$directory$username$rust$python$git_branch$git_commit
+ $sudo$cmd_duration$directory$username$rust$python$git_branch$git_commit
  $character
 """
 
@@ -58,6 +58,9 @@ format = '[[ •• ](bold fg:white)[](bold fg:#a6e3a1)[$symbol $virtualenv](
 symbol = '󱘗'
 format = '[[ •• ](bold fg:white)[](bold fg:#fab387)[$symbol $version](bold bg:#fab387 fg:#1e1e2e)[](bold fg:#fab387)]($style)'
 
+[docker_context]
+symbol = ""
+format = '[[ •• ](bold fg:white)[](bold fg:#74c7ec)[$symbol $context](bold bg:#74c7ec fg:#1e1e2e)[](bold fg:#74c7ec)]($style)'
 
 [hostname]
 ssh_only = false
@@ -85,6 +88,11 @@ style_root = "red bold"
 format = "[](bold fg:white)[$user]($style)[](bold fg:white)"
 disabled = false
 show_always = true
+
+[sudo]
+symbol = " "
+format = "[(bold fg:white)[](bold fg:#f38ba8)[$symbol](bold bg:#f38ba8 fg:#1e1e2e)[](bold fg:#f38ba8)[ •• ](bold fg:white)]($style)"
+disabled = false
 
 [directory]
 home_symbol = "  "
