@@ -1,6 +1,7 @@
 local opt = vim.opt
 local g = vim.g
 
+
 opt.relativenumber = true
 g.dap_virtual_text = true
 
