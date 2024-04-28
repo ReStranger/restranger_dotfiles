@@ -1,9 +1,11 @@
 ---@type MappingsTable
 local M = {}
+local python_filename = vim.fn.expand('%:t')
 
 M.general = {
   n = {
     [";"] = { ":", "enter command mode", opts = { nowait = true } },
+    ["<leader>pf"] = { ":!black ./" .. python_filename .. "<CR>:", opts = {noremap = true, silent = true} },
   },
 }
 

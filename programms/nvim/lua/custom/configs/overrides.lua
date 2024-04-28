@@ -50,6 +50,7 @@ M.mason = {
 
     -- python stuff
     "pyright",
+    "black",
     "mypy",
     "ruff",
     "debugpy",
