@@ -175,6 +175,11 @@ local plugins = {
         vim.keymap.set('i', '<c-x>', function() return vim.fn['codeium#Clear']() end, { expr = true, silent = true })
   end
   },
+  {
+		"theRealCarneiro/hyprland-vim-syntax",
+		  dependencies = { "nvim-treesitter/nvim-treesitter" },
+		  ft = "hypr",
+	},
   -- override plugin configs
   {
     "williamboman/mason.nvim",
