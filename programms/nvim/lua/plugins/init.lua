@@ -141,11 +141,11 @@ return {
     end,
   },
   -- fix hypr config hilight
-  -- {
-  --   "theRealCarneiro/hyprland-vim-syntax",
-  --   dependencies = { "nvim-treesitter/nvim-treesitter" },
-  --   ft = "hypr",
-  -- },
+  {
+    "theRealCarneiro/hyprland-vim-syntax",
+    dependencies = { "nvim-treesitter/nvim-treesitter" },
+    ft = "hypr",
+  },
   -- AI
   {
     "Exafunction/codeium.vim",
@@ -228,7 +228,7 @@ return {
     ft = "rust",
     dependencies = "neovim/nvim-lspconfig",
     opts = function()
-      return require "confgs.rust-tools"
+      return require "configs.rust-tools"
     end,
     config = function(_, opts)
       require("rust-tools").setup(opts)

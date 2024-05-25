@@ -1,23 +1,24 @@
--- This file  needs to have same structure as nvconfig.lua 
+-- This file  needs to have same structure as nvconfig.lua
 -- https://github.com/NvChad/NvChad/blob/v2.5/lua/nvconfig.lua
 
 ---@type ChadrcConfig
 local M = {}
+local current_theme = "yoru"
 
 M.ui = {
   ------------------------------- base46 -------------------------------------
 
   -- THEME SETTINGS
-	theme = "yoru",
-  theme_toggle = { "catppuccin", "one_light" },
+  theme = current_theme,
+  theme_toggle = { current_theme, "one_light" },
   transparency = false,
 
   -- HILIGHT SETTINGS
   hl_add = {},
-	hl_override = {
-		Comment = { italic = true },
-		["@comment"] = { italic = true },
-	},
+  hl_override = {
+    Comment = { italic = true },
+    ["@comment"] = { italic = true },
+  },
 
   -- CMP(CODE TIPS) SETTINGS
   cmp = {
@@ -26,7 +27,6 @@ M.ui = {
     style = "default", -- default/flat_light/flat_dark/atom/atom_colored
     border_color = "blue",
     selected_item_bg = "colored",
-
   },
 
   -- TELESCOPE SETTINGS
@@ -37,9 +37,9 @@ M.ui = {
     theme = "default", -- default/vscode/vscode_colored/minimal
     -- default/round/block/arrow separators work only for default statusline theme
     -- round and block will work for minimal theme only
-    separator_style = "default",
+    separator_style = "block",
     order = { "mode", "file", "git", "%=", "lsp_msg", "%=", "diagnostics", "lsp", "cwd", "cursor" },
-    modules = nil
+    modules = nil,
   },
   tabufline = {
     enabled = true,
