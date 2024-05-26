@@ -111,7 +111,8 @@ return {
       local animate = require "mini.animate"
       return {
         cursor = {
-          enable = true,
+          enable = false, -- if u use neovide or alacritty-smooth-cursor
+          -- enable = true,
         },
         resize = {
           enable = false,
