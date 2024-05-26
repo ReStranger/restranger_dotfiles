@@ -37,7 +37,6 @@ fi
 
 autoload -Uz compinit && compinit -d "$HOME/.cache/zcompdump-${ZSH_VERSION}"
 
-bindkey "^;" autocomplete
 bindkey "^[OA" history-beginning-search-backward
 bindkey "^[OB" history-beginning-search-forward
 bindkey -M vicmd "k" history-beginning-search-backward
