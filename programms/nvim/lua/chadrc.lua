@@ -3,15 +3,14 @@
 
 ---@type ChadrcConfig
 local M = {}
-local current_theme = "yoru"
 
 M.ui = {
   ------------------------------- base46 -------------------------------------
 
   -- THEME SETTINGS
-  theme = current_theme,
-  theme_toggle = { current_theme, "one_light" },
-  transparency = false,
+  theme = "catppuccin",
+  theme_toggle = { "catppuccin", "github_light" },
+  transparency = true,
 
   -- HILIGHT SETTINGS
   hl_add = {},
