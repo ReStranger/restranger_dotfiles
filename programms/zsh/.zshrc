@@ -22,10 +22,29 @@ zinit snippet OMZP::oc
 zinit snippet OMZP::gnu-utils
 zinit snippet OMZP::command-not-found
 
+# ZSH VI MODE
+export KEYTIMEOUT=1
+ZVM_INIT_MODE=sourcing
+ZVM_READKEY_ENGINE=$ZVM_READKEY_ENGINE_NEX
 ZVM_VI_INSERT_ESCAPE_BINDKEY=jj
-zvm_after_init_commands+=("bindkey '^[[A' up-line-or-beginning-search" "bindkey '^[[B' down-line-or-beginning-search")
+ZVM_VI_HIGHLIGHT_FOREGROUND=#BAC2DE
+ZVM_VI_HIGHLIGHT_BACKGROUND=#2F2E3E
+
+if [[ -f "$HOME/.zcompdump" ]]; then
+  rm -f "$HOME/.zcompdump"
+  echo "Old zcompdump removed. New zcompdump put on $HOME/.cache/zcompdump-${ZSH_VERSION}"
+fi
 
 autoload -Uz compinit && compinit -d "$HOME/.cache/zcompdump-${ZSH_VERSION}"
+
+bindkey "^[OA" history-beginning-search-backward
+bindkey "^[OB" history-beginning-search-forward
+bindkey -M vicmd "k" history-beginning-search-backward
+bindkey -M vicmd "j" history-beginning-search-forward
+bindkey -M vicmd "k" history-beginning-search-backward
+bindkey -M vicmd "j" history-beginning-search-forward
+bindkey -M vicmd '?' history-incremental-search-backward
+bindkey -M vicmd '/' history-incremental-search-forward
 
 zinit cdreplay -q
 
@@ -55,14 +74,22 @@ if [[ -d "$HOME/.local/bin/platform-tools/" ]] ; then
     PATH="$HOME/.local/bin/platform-tools/:$PATH"
 fi
 
-alias neofetch="~/.config/neofetch/random_img.sh"
-alias shell-color-scripts="~/.config/scripts/shell-color-scripts/random_script.sh"
+function yy() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}
+
+# REPLASES
 alias vi="nvim"
 alias lg="lazygit"
 alias ls="lsd --color=auto"
 alias la="lsd --color=auto -a"
 alias lt="lsd --color=auto --tree"
-alias rr="ranger"
+alias cat="bat --style=grid"
 alias tmux="tmux -u"
 alias uwufetch="uwufetch -i"
 alias mkvenv="python -m venv .venv"
@@ -72,13 +99,34 @@ alias Жй="exit"
 alias :Q="exit"
 alias ЖЙ="exit"
 
+# USFULL COMMANDS
 alias find.trash="sudo find / | grep -vE '/home/restranger/.cache|/home/restranger/.icons|/root/.cache|/root/.icons|/var/log|/tmp' | grep"
-alias ssh.kali="ssh 192.168.122.187 -l restranger"
 alias ssh.open="sudo systemctl start zerotier-one.service && sudo systemctl start sshd.service"
-alias gentoo-chroot="~/.config/scripts/GentooChroot"
-alias random_wallpaper="~/.config/scripts/WallColorParser/random_wallpaper"
+
+# SCRIPTS
+alias gentoo-chroot="$HOME/.config/scripts/GentooChroot"
+if [ $TERM = "xterm-kitty" ]; then 
+  alias neofetch="$HOME/.config/neofetch/random_img.sh"
+fi
+alias shell-color-scripts="$HOME/.config/scripts/shell-color-scripts/random_script.sh"
+alias rezsh_remove_folders="sudo rm -rf $HOME/.local/share/zinit/ && echo \"\nZSH folders removed\n\""
+alias rezsh_reload_config="source $HOME/.zshrc"
+alias rezsh_update="\
+  mkdir -p $HOME/.cache/re_zsh/ && \
+  git clone --no-checkout https://github.com/ReStranger/restanger_dotfiles.git .cache/re_zsh && \
+  cd $HOME/.cache/re_zsh && \
+  git sparse-checkout init --cone && \
+  git sparse-checkout set programms/zsh/.zshrc && \
+  cp -f $HOME/.cache/re_zsh/programms/zsh/.zshrc $HOME/.zshrc && \
+  rm -rf $HOME/.cache/re_zsh && \
+  zinit self-update && \
+  zinit update -a -p 10 && \
+  source $HOME/.zshrc && \
+  echo \"\nZSH config updated\n\""
+alias zcr="source $HOME/.zshrc"
 
 export PATH=$PATH:/home/restranger/.spicetify
 
 eval "$(fzf --zsh)"
 eval "$(starship init zsh)"
+eval "$(zoxide init zsh)"
