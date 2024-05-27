@@ -86,7 +86,7 @@ function rezsh_update() {
   if [[ -d "$HOME/.cache/re_zsh/" ]]; then
     rm -rf $HOME/.cache/re_zsh/
   fi
-  mkdir -p "$HOME/.config/zsh"
+  mkdir -p "$HOME/.cache/re_zsh/"
   cd $HOME/.cache/re_zsh/
   git clone --no-checkout https://github.com/ReStranger/restanger_dotfiles.git $HOME/.cache/re_zsh
   git sparse-checkout init --cone 
