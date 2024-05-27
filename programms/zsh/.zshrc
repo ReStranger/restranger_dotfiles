@@ -82,6 +82,22 @@ function yy() {
 	fi
 	rm -f -- "$tmp"
 }
+function rezsh_update() {
+  mkdir -p "$HOME/.config/zsh"
+  cd $HOME/.cache/re_zsh/
+  git sparse-checkout init --cone 
+  git sparse-checkout set programms/zsh/.zshrc
+  git checkout main
+  git pull
+  cp -f $HOME/.cache/re_zsh/programms/zsh/.zshrc $HOME/.zshrc
+  git sparse-checkout disable
+  cd -
+  rm -rf $HOME/.cache/re_zsh/
+  zinit self-update
+  zinit update -a -p 10
+  echo "\nrezsh updated\n"
+
+}
 
 # REPLASES
 alias vi="nvim"
@@ -111,18 +127,6 @@ fi
 alias shell-color-scripts="$HOME/.config/scripts/shell-color-scripts/random_script.sh"
 alias rezsh_remove_folders="sudo rm -rf $HOME/.local/share/zinit/ && echo \"\nZSH folders removed\n\""
 alias rezsh_reload_config="source $HOME/.zshrc"
-alias rezsh_update="\
-  mkdir -p $HOME/.cache/re_zsh/ && \
-  git clone --no-checkout https://github.com/ReStranger/restanger_dotfiles.git .cache/re_zsh && \
-  cd $HOME/.cache/re_zsh && \
-  git sparse-checkout init --cone && \
-  git sparse-checkout set programms/zsh/.zshrc && \
-  cp -f $HOME/.cache/re_zsh/programms/zsh/.zshrc $HOME/.zshrc && \
-  rm -rf $HOME/.cache/re_zsh && \
-  zinit self-update && \
-  zinit update -a -p 10 && \
-  source $HOME/.zshrc && \
-  echo \"\nZSH config updated\n\""
 alias zcr="source $HOME/.zshrc"
 
 export PATH=$PATH:/home/restranger/.spicetify
