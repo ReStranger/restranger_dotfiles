@@ -89,12 +89,13 @@ function rezsh_update() {
   git sparse-checkout set programms/zsh/.zshrc
   git checkout main
   git pull
-  cp -f $HOME/.cache/re_zsh/programms/zsh/.zshrc $HOME/.zshrc
+  cp -rf $HOME/.cache/re_zsh/programms/zsh/.zshrc $HOME/.zshrc
   git sparse-checkout disable
   cd -
   rm -rf $HOME/.cache/re_zsh/
   zinit self-update
   zinit update -a -p 10
+  source $HOME/.zshrc
   echo "\nrezsh updated\n"
 
 }
