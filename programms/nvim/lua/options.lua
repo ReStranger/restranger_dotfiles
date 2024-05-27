@@ -7,4 +7,5 @@ local g = vim.g
 o.cursorlineopt = "both"
 opt.relativenumber = true
 opt.mouse = "a"
+vim.opt.clipboard = "unnamedplus"
 g.dap_virtual_text = true

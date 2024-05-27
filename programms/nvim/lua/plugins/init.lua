@@ -141,6 +141,20 @@ return {
       }
     end,
   },
+  {
+    "luukvbaal/statuscol.nvim",
+    config = function()
+      require "configs.statuscol"
+    end,
+  },
+  {
+    "kevinhwang91/nvim-ufo",
+    event = "VeryLazy",
+    dependencies = { "kevinhwang91/promise-async" },
+    config = function()
+      require "configs.ufo"
+    end,
+  },
   -- fix hypr config hilight
   {
     "theRealCarneiro/hyprland-vim-syntax",

@@ -10,7 +10,7 @@ M.ui = {
   -- THEME SETTINGS
   theme = "catppuccin",
   theme_toggle = { "catppuccin", "github_light" },
-  transparency = true,
+  transparency = false,
 
   -- HILIGHT SETTINGS
   hl_add = {},

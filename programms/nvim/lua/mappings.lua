@@ -1,11 +1,22 @@
 require "nvchad.mappings"
 
--- add yours here
-
 local map = vim.keymap.set
 
 map("n", ";", ":", { desc = "CMD enter command mode" })
 
+-- -- UFO
+map("n", "zR", require("ufo").openAllFolds, { desc = "UFO Open all folds" })
+map("n", "zM", require("ufo").closeAllFolds, { desc = "UFO Close all folds" })
+map("n", "zr", require("ufo").openFoldsExceptKinds, { desc = "UFO Open folds except" })
+map("n", "zm", require("ufo").closeFoldsWith, { desc = "UFO Close folds with" })
+map("n", "K", function()
+  local winid = require("ufo").peekFoldedLinesUnderCursor()
+  if not winid then
+    vim.lsp.buf.hover()
+  end
+end, { desc = "UFO LSP hover" })
+
+-- DEBUGGER
 map("n", "<leader>db", "<cmd> DapToggleBreakpoint <CR>", { desc = "DAP Toggle Breakpoint" })
 map("n", "<leader>dus", function()
   local widgets = require "dap.ui.widgets"
