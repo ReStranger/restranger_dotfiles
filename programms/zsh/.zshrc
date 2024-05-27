@@ -83,19 +83,23 @@ function yy() {
 	rm -f -- "$tmp"
 }
 function rezsh_update() {
+  if [[ -d "$HOME/.cache/re_zsh/" ]]; then
+    rm -rf $HOME/.cache/re_zsh/
+  fi
   mkdir -p "$HOME/.config/zsh"
   cd $HOME/.cache/re_zsh/
+  git clone --no-checkout https://github.com/ReStranger/restanger_dotfiles.git $HOME/.cache/re_zsh
   git sparse-checkout init --cone 
   git sparse-checkout set programms/zsh/.zshrc
   git checkout main
   git pull
-  cp -rf $HOME/.cache/re_zsh/programms/zsh/.zshrc $HOME/.zshrc
+  cp -f $HOME/.cache/re_zsh/programms/zsh/.zshrc $HOME/.zshrc
   git sparse-checkout disable
   cd -
   rm -rf $HOME/.cache/re_zsh/
   zinit self-update
   zinit update -a -p 10
-  source $HOME/.zshrc
+  clear
   echo "\nrezsh updated\n"
 
 }
