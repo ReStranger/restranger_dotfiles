@@ -1,0 +1,9 @@
+[Trigger]
+Operation = Upgrade
+Type = Package
+Target = neovim
+
+[Action]
+Description = Fix for opening neovim...
+When = PostTransaction
+Exec = /etc/pacman.d/30-nvim-fix.sh
