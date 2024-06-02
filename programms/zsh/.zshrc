@@ -30,6 +30,16 @@ ZVM_VI_INSERT_ESCAPE_BINDKEY=jj
 ZVM_VI_HIGHLIGHT_FOREGROUND=#BAC2DE
 ZVM_VI_HIGHLIGHT_BACKGROUND=#2F2E3E
 
+export FZF_DEFAULT_OPTS=" \
+--color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
+--color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8"
+
+export BAT_THEME="Catppuccin Mocha"
+# DISABLE IF U USE x11 or not use alacritty-smooth-cursor-git
+if [ -z "$WAYLAND_DISPLAY" ]; then
+    export WAYLAND_DISPLAY=wayland-1
+fi
+
 if [[ -f "$HOME/.zcompdump" ]]; then
   rm -f "$HOME/.zcompdump"
   echo "Old zcompdump removed. New zcompdump put on $HOME/.cache/zcompdump-${ZSH_VERSION}"
