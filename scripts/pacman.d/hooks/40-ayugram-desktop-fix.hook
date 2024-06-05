@@ -1,11 +1,11 @@
 [Trigger]
-Operation = Install
 Operation = Upgrade
+Operation = Install
 Type = Package
-Target = neovim
+Target = ayugram-desktop
 
 [Action]
 Description = Fix for opening neovim...
 When = PostTransaction
-Exec = /etc/pacman.d/hooks/30-nvim-fix.sh
+Exec = /etc/pacman.d/hooks/40-ayugram-desktop-fix.sh
 
