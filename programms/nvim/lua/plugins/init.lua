@@ -143,14 +143,16 @@ return {
   },
   {
     "luukvbaal/statuscol.nvim",
+    lazy = false,
     config = function()
       require "configs.statuscol"
     end,
   },
   {
     "kevinhwang91/nvim-ufo",
-    event = "VeryLazy",
     dependencies = { "kevinhwang91/promise-async" },
+    -- event = "VeryLazy",
+    event = "BufReadPost",
     config = function()
       require "configs.ufo"
     end,
@@ -164,7 +166,7 @@ return {
   -- AI
   {
     "Exafunction/codeium.vim",
-    event = "BufEnter",
+    event = "VeryLazy",
     config = function()
       -- Change '<C-g>' here to any keycode you like.
       vim.keymap.set("i", "<C-;>", function()

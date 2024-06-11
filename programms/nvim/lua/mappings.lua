@@ -7,8 +7,6 @@ map("n", ";", ":", { desc = "CMD enter command mode" })
 -- -- UFO
 map("n", "zR", require("ufo").openAllFolds, { desc = "UFO Open all folds" })
 map("n", "zM", require("ufo").closeAllFolds, { desc = "UFO Close all folds" })
-map("n", "zr", require("ufo").openFoldsExceptKinds, { desc = "UFO Open folds except" })
-map("n", "zm", require("ufo").closeFoldsWith, { desc = "UFO Close folds with" })
 map("n", "K", function()
   local winid = require("ufo").peekFoldedLinesUnderCursor()
   if not winid then
