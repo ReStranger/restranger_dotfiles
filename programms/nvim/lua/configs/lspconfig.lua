@@ -1,4 +1,4 @@
--- EXAMPLE 
+-- EXAMPLE
 local on_attach = require("nvchad.configs.lspconfig").on_attach
 local on_init = require("nvchad.configs.lspconfig").on_init
 local capabilities = require("nvchad.configs.lspconfig").capabilities
@@ -15,26 +15,26 @@ for _, lsp in ipairs(servers) do
   }
 end
 
-lspconfig.pyright.setup({
+lspconfig.pyright.setup {
   on_attach = on_attach,
   capabilities = capabilities,
-  filetypes = {"python"},
-})
+  filetypes = { "python" },
+}
 
-vim.api.nvim_create_autocmd('FileType', {
-  pattern = 'sh',
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "sh",
   callback = function()
-    vim.lsp.start({
-      name = 'bash-language-server',
-      cmd = { 'bash-language-server', 'start' },
-    })
+    vim.lsp.start {
+      name = "bash-language-server",
+      cmd = { "bash-language-server", "start" },
+    }
   end,
 })
 
 local function organize_imports()
   local params = {
     command = "_typescript.organizeImports",
-    arguments = {vim.api.nvim_buf_get_name(0)},
+    arguments = { vim.api.nvim_buf_get_name(0) },
   }
   vim.lsp.buf.execute_command(params)
 end
@@ -45,12 +45,12 @@ lspconfig.tsserver.setup {
   init_options = {
     preferences = {
       disableSuggestions = true,
-    }
+    },
   },
   commands = {
     OrganizeImports = {
       organize_imports,
       description = "Organize Imports",
-    }
-  }
+    },
+  },
 }
