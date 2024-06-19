@@ -30,16 +30,13 @@ ZVM_VI_INSERT_ESCAPE_BINDKEY=jj
 ZVM_VI_HIGHLIGHT_FOREGROUND=#BAC2DE
 ZVM_VI_HIGHLIGHT_BACKGROUND=#2F2E3E
 
+# Themes
 export FZF_DEFAULT_OPTS=" \
 --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
 --color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8"
-
 export BAT_THEME="Catppuccin Mocha"
-# DISABLE IF U USE x11 or not use alacritty-smooth-cursor-git
-if [ -z "$WAYLAND_DISPLAY" ]; then
-    export WAYLAND_DISPLAY=wayland-1
-fi
 
+# ZSH Settings
 if [[ -f "$HOME/.zcompdump" ]]; then
   rm -f "$HOME/.zcompdump"
   echo "Old zcompdump removed. New zcompdump put on $HOME/.cache/zcompdump-${ZSH_VERSION}"
@@ -84,6 +81,15 @@ if [[ -d "$HOME/.local/bin/platform-tools/" ]] ; then
     PATH="$HOME/.local/bin/platform-tools/:$PATH"
 fi
 
+if [[ -d "$HOME/.local/bin/platform-tools/" ]] ; then
+    PATH="$HOME/.local/bin/platform-tools/:$PATH"
+fi
+
+# DISABLE IF U USE x11 or not use alacritty-smooth-cursor-git
+if [[ -z "$WAYLAND_DISPLAY" && $TERM = "xterm-256color" ]]; then
+    export WAYLAND_DISPLAY=wayland-1
+fi
+
 function yy() {
 	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
 	yazi "$@" --cwd-file="$tmp"
@@ -119,11 +125,13 @@ alias vi="nvim"
 alias lg="lazygit"
 alias ls="lsd --color=auto"
 alias la="lsd --color=auto -a"
+alias ll="lsd --color=auto -la"
 alias lt="lsd --color=auto --tree"
 alias cat="bat --style=grid"
 alias tmux="tmux -u"
 alias uwufetch="uwufetch -i"
 alias mkvenv="python -m venv .venv"
+alias update-grub="sudo grub-mkconfig -o /boot/grub/grub.cfg"
 
 alias :q="exit"
 alias Жй="exit"
