@@ -28,18 +28,18 @@ return {
     opts = {
       ensure_installed = {
         -- lua stuff
-        "lua-language-server",
-        "stylua",
+        "lua-language-server", --x86_64 only. also install in you $PATH
+        "stylua", --x86_64 only. also install in you $PATH
         -- web dev stuff
         "html-lsp",
         "css-lsp",
         "prettier",
         "typescript-language-server",
         -- c/cpp stuff
-        "clangd",
+        "clangd", --x86_64 only. also install in you $PATH
         "clang-format",
         -- rust
-        "rust-analyzer",
+        "rust-analyzer", --x86_64 only. also install in you $PATH
         -- python stuff
         "pyright",
         "black",
