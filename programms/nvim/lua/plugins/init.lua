@@ -48,6 +48,8 @@ return {
         "debugpy",
         -- bash stuff
         "bash-language-server",
+        -- config stuff
+        "hyprlang",
       },
     },
   },
@@ -156,12 +158,6 @@ return {
     config = function()
       require "configs.ufo"
     end,
-  },
-  -- fix hypr config hilight
-  {
-    "theRealCarneiro/hyprland-vim-syntax",
-    dependencies = { "nvim-treesitter/nvim-treesitter" },
-    ft = "hypr",
   },
   -- AI
   {
