@@ -81,8 +81,8 @@ if [[ -d "$HOME/.local/bin/platform-tools/" ]] ; then
     PATH="$HOME/.local/bin/platform-tools/:$PATH"
 fi
 
-if [[ -d "$HOME/.local/bin/platform-tools/" ]] ; then
-    PATH="$HOME/.local/bin/platform-tools/:$PATH"
+if [[ -d "$HOME/.local/bin/" ]] ; then
+    PATH="$HOME/.local/bin/:$PATH"
 fi
 
 # DISABLE IF U USE x11 or not use alacritty-smooth-cursor-git
