@@ -48,8 +48,6 @@ return {
         "debugpy",
         -- bash stuff
         "bash-language-server",
-        -- config stuff
-        "hyprlang",
       },
     },
   },
@@ -76,6 +74,7 @@ return {
         "dockerfile",
         "markdown",
         "markdown_inline",
+        "hyprlang",
       },
     },
   },
