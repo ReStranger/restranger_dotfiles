@@ -48,6 +48,8 @@ return {
         "debugpy",
         -- bash stuff
         "bash-language-server",
+        -- markdown stuff
+        "marksman",
       },
     },
   },
@@ -158,6 +160,7 @@ return {
       require "configs.ufo"
     end,
   },
+  { "ellisonleao/glow.nvim", config = true, cmd = "Glow" },
   -- AI
   {
     "Exafunction/codeium.vim",

@@ -54,3 +54,6 @@ lspconfig.tsserver.setup {
     },
   },
 }
+require("lspconfig").marksman.setup {
+  filetypes = { "markdown" },
+}
