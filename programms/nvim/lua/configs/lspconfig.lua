@@ -19,6 +19,18 @@ lspconfig.pyright.setup {
   on_attach = on_attach,
   capabilities = capabilities,
   filetypes = { "python" },
+  settings = {
+    python = {
+      venvPath = vim.fn.getcwd() .. "/.venv",
+      pythonPath = vim.fn.getcwd() .. "/.venv/bin/python",
+    },
+  },
+}
+
+lspconfig.clangd.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  cmd = { "clangd", "--compile-commands-dir=." },
 }
 
 vim.api.nvim_create_autocmd("FileType", {
