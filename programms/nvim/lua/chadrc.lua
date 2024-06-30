@@ -23,7 +23,7 @@ M.ui = {
   cmp = {
     icons = true,
     lspkind_text = true,
-    style = "atom_colored", -- default/flat_light/flat_dark/atom/atom_colored
+    style = "default", -- default/flat_light/flat_dark/atom/atom_colored
     border_color = "blue",
     selected_item_bg = "colored",
   },
