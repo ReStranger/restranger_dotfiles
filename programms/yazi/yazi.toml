@@ -1,5 +1,5 @@
 [manager]
-show_hidden = true
+show_hidden = false
 
 [preview]
 image_filter = "nearest"
