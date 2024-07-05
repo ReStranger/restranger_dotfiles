@@ -1,15 +1,16 @@
 #!/bin/bash
-sudo mount --types proc /proc /mnt/sda1/gentoo/proc 
-sudo mount --rbind /sys /mnt/sda1/gentoo/sys
-sudo mount --make-rslave /mnt/sda1/gentoo/sys
-sudo mount --rbind /dev /mnt/sda1/gentoo/dev
-sudo mount --make-rslave /mnt/sda1/gentoo/dev
-sudo mount --bind /run /mnt/sda1/gentoo/run
-sudo mount --make-slave /mnt/sda1/gentoo/run
-if [[ -f "/mnt/sda1/gentoo/usr/bin/zsh" ]]; then
+GentooEnvPath=/mnt/sda1/gentoo
+sudo mount --types proc /proc $GentooEnvPath/proc 
+sudo mount --rbind /sys $GentooEnvPath/sys
+sudo mount --make-rslave $GentooEnvPath/sys
+sudo mount --rbind /dev $GentooEnvPath/dev
+sudo mount --make-rslave $GentooEnvPath/dev
+sudo mount --bind /run $GentooEnvPath/run
+sudo mount --make-slave $GentooEnvPath/run
+if [[ -f "$GentooEnvPath/usr/bin/zsh" ]]; then
   echo "Zsh founded. Chrooting..."
-  su -c "chroot /mnt/sda1/gentoo/ /bin/zsh"
+  su -c "chroot $GentooEnvPath /bin/zsh"
 else
   echo "Zsh not founded. Chrooting in bash..."
-  su -c "chroot /mnt/sda1/gentoo/ /bin/bash"
+  su -c "chroot $GentooEnvPath /bin/bash"
 fi
