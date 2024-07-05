@@ -127,10 +127,10 @@ alias ls="lsd --color=auto"
 alias la="lsd --color=auto -a"
 alias ll="lsd --color=auto -la"
 alias lt="lsd --color=auto --tree"
-alias cat="bat --style=grid"
+alias cat="bat --style=plain"
 alias tmux="tmux -u"
 alias uwufetch="uwufetch -i"
-alias mkvenv="python -m venv .venv"
+alias mkvenv="python -m venv .venv && source .venv/bin/activate"
 alias update-grub="sudo grub-mkconfig -o /boot/grub/grub.cfg"
 
 alias :q="exit"
@@ -139,7 +139,7 @@ alias :Q="exit"
 alias ЖЙ="exit"
 
 # USFULL COMMANDS
-alias find.trash="sudo find / | grep -vE '/home/restranger/.cache|/home/restranger/.icons|/root/.cache|/root/.icons|/var/log|/tmp' | grep"
+alias find.trash="sudo find / | grep -vE '/home/restranger/.cache|/home/restranger/.icons|/root/.cache|/root/.icons|/var/log|/tmp' | rg"
 alias ssh.open="sudo systemctl start zerotier-one.service && sudo systemctl start sshd.service"
 
 # SCRIPTS
