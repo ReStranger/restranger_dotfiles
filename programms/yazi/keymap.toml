@@ -1,0 +1,4 @@
+[manager]
+keymap = [
+  { on = [ "." ], exec = "hidden toggle", desc = "Toggle the visibility of hidden files" },
+]
