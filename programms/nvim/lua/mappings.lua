@@ -4,7 +4,14 @@ local map = vim.keymap.set
 
 map("n", ";", ":", { desc = "CMD enter command mode" })
 
--- -- UFO
+-- TMUX
+map("n", "<c-h>", "<cmd>TmuxNavigateLeft<cr>", { desc = "Tmux Left"})
+map("n", "<c-j>", "<cmd>TmuxNavigateDown<cr>", { desc = "Tmux Down"})
+map("n", "<c-k>", "<cmd>TmuxNavigateUp<cr>", { desc = "Tmux Up"})
+map("n", "<c-l>", "<cmd>TmuxNavigateRight<cr>", { desc = "Tmux Right"})
+map("n", "<c-\\>", "<cmd>TmuxNavigatePrevious<cr>", { desc = "Tmux Previous"})
+
+-- UFO
 map("n", "zR", require("ufo").openAllFolds, { desc = "UFO Open all folds" })
 map("n", "zM", require("ufo").closeAllFolds, { desc = "UFO Close all folds" })
 map("n", "K", function()
