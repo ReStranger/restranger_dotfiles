@@ -23,6 +23,11 @@ lspconfig.pyright.setup {
     python = {
       venvPath = vim.fn.getcwd() .. "/.venv",
       pythonPath = vim.fn.getcwd() .. "/.venv/bin/python",
+      analysis = {
+        autoSearchPaths = true,
+        diagnosticMode = "openFilesOnly",
+        useLibraryCodeForTypes = true,
+      },
     },
   },
 }
@@ -31,6 +36,7 @@ lspconfig.clangd.setup {
   on_attach = on_attach,
   capabilities = capabilities,
   cmd = { "clangd", "--compile-commands-dir=." },
+  filetypes = { "c", "cpp", "objc", "objcpp", "cuda", "proto" },
 }
 
 vim.api.nvim_create_autocmd("FileType", {
@@ -66,6 +72,12 @@ lspconfig.tsserver.setup {
     },
   },
 }
-require("lspconfig").marksman.setup {
-  filetypes = { "markdown" },
+lspconfig.nil_ls.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  filetypes = { "nix" },
+  cmd = { "nil" },
+}
+lspconfig.marksman.setup {
+  filetypes = { "markdown", "markdown.mdx" },
 }

@@ -1,7 +1,8 @@
+local lazy = require "lazy"
 return {
   {
     "stevearc/conform.nvim",
-    event = "BufWritePre", -- uncomment for format on save
+    event = "BufWritePre",
     config = function()
       require "configs.conform"
     end,
@@ -50,6 +51,8 @@ return {
         "bash-language-server",
         -- markdown stuff
         "marksman",
+        -- nix
+        "nil",
       },
     },
   },
@@ -77,6 +80,7 @@ return {
         "markdown",
         "markdown_inline",
         "hyprlang",
+        "nix",
       },
     },
   },
@@ -90,12 +94,12 @@ return {
       "TmuxNavigateRight",
       "TmuxNavigatePrevious",
     },
-    keys = {
-      { "<c-h>", "<cmd><C-U>TmuxNavigateLeft<cr>" },
-      { "<c-j>", "<cmd><C-U>TmuxNavigateDown<cr>" },
-      { "<c-k>", "<cmd><C-U>TmuxNavigateUp<cr>" },
-      { "<c-l>", "<cmd><C-U>TmuxNavigateRight<cr>" },
-      { "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>" },
+  },
+  {
+    "stevearc/dressing.nvim",
+    lazy = false,
+    dependencies = {
+      "luukvbaal/statuscol.nvim",
     },
   },
   {
@@ -139,9 +143,7 @@ return {
     "max397574/better-escape.nvim",
     event = "InsertEnter",
     config = function()
-      require("better_escape").setup {
-        mapping = { "jj" },
-      }
+      require "configs.better_escape"
     end,
   },
   {
@@ -154,13 +156,20 @@ return {
   {
     "kevinhwang91/nvim-ufo",
     dependencies = { "kevinhwang91/promise-async" },
-    -- event = "VeryLazy",
     event = "BufReadPost",
     config = function()
       require "configs.ufo"
     end,
   },
-  { "ellisonleao/glow.nvim", config = true, cmd = "Glow" },
+  {
+    "MeanderingProgrammer/markdown.nvim",
+    dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" },
+    event = "BufReadPost",
+    config = function()
+      require("render-markdown").setup {}
+    end,
+  },
+  { "3rd/image.nvim" },
   -- AI
   {
     "Exafunction/codeium.vim",
@@ -186,14 +195,14 @@ return {
   {
     "dundalek/parpar.nvim",
     dependencies = { "gpanders/nvim-parinfer", "julienvincent/nvim-paredit" },
-    opts = {},
+    lazy = false,
   },
   -- DEBUGGER
   {
     "mfussenegger/nvim-dap",
-    config = function(_, opts)
-      -- require "configs.dap"
-    end,
+    -- config = function(_, opts)
+    -- require "configs.dap"
+    -- end,
   },
   {
     "rcarriga/nvim-dap-ui",
@@ -239,15 +248,10 @@ return {
 
   -- RUST
   {
-    "simrat39/rust-tools.nvim",
-    ft = "rust",
-    dependencies = "neovim/nvim-lspconfig",
-    opts = function()
-      return require "configs.rust-tools"
-    end,
-    config = function(_, opts)
-      require("rust-tools").setup(opts)
-    end,
+    "mrcjkb/rustaceanvim",
+    ft = { "rust" },
+    version = "^4",
+    lazy = false,
   },
   {
     "saecki/crates.nvim",
