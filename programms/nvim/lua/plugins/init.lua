@@ -197,6 +197,36 @@ return {
     dependencies = { "gpanders/nvim-parinfer", "julienvincent/nvim-paredit" },
     lazy = false,
   },
+  {
+    "windwp/nvim-ts-autotag",
+    dependencies = { "luukvbaal/statuscol.nvim" },
+    ft = {
+      "astro",
+      "glimmer",
+      "handlebars",
+      "html",
+      "javascript",
+      "jsx",
+      "markdown",
+      "php",
+      "rescript",
+      "svelte",
+      "tsx",
+      "twig",
+      "typescript",
+      "vue",
+      "xml",
+    },
+    config = function()
+      require("nvim-ts-autotag").setup {
+        opts = {
+          enable_close = true,
+          enable_rename = true,
+          enable_close_on_slash = false,
+        },
+      }
+    end,
+  },
   -- DEBUGGER
   {
     "mfussenegger/nvim-dap",
