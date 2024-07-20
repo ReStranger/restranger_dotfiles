@@ -1,0 +1,125 @@
+// -*- mode: jsonc -*-
+{
+    "layer": "top", // Waybar at top layer
+    // "position": "bottom", // Waybar position (top|bottom|left|right)
+    "height": 32, // Waybar height (to be removed for auto height)
+    "width": 1890, // Waybar width
+    "margin-top": 5,
+    // "spacing": 4, // Gaps between modules (4px)
+    // Choose the order of the modules
+    "modules-left": [
+        "custom/menu",
+        "hyprland/workspaces",
+        "hyprland/window"
+    ],
+    "modules-center": [
+        "clock",
+        "tray"
+    ],
+    "modules-right": [
+        "pulseaudio",
+        "network",
+        "temperature",
+        "cpu",
+        "memory",
+        //"keyboard-state",
+        "custom/powermenu"
+    ],
+    // Modules configuration
+    "hyprland/workspaces": {
+         "disable-scroll": false,
+         "format": "{icon}",
+         "format-icons": {
+                   "1": "󰈹",
+                   "2": "",
+                   "3": "",
+                   "4": "",
+                   "5": "",
+                   "6": "󰸷",
+                   "7": "󰓓",
+                   "8": "",
+                   "9": "󱥁",
+                   "10": "",
+                   "urgent": ""
+     },
+         "persistent-workspaces": {    
+                   "HDMI-A-1": [ 1, 2, 3, 4, 5, 6 ],
+                   "DVI-D-1": [ 7, 8, 9, 10 ]
+         },
+         "on-scroll-up": "hyprctl dispatch workspace e+1",
+         "on-scroll-down": "hyprctl dispatch workspace e-1"
+    },
+    "hyprland/window": {
+        "format": "{title:.16}",
+        "icon": true,
+        "icon-size": 18,
+        "separate-outputs": true
+    },
+    "tray": {
+        "icon-size": 18,
+        "spacing": 8
+    },
+    "clock": {
+        "format": "󰅐 {:%H:%M}",
+        // "timezone": "America/New_York",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format-alt": "󰃭 {:%d-%m-%Y}"
+    },
+    "cpu": {
+        "format": " {usage}%",
+        "tooltip": false
+    },
+    "memory": {
+        "format": " {}%"
+    },
+    "temperature": {
+        "thermal-zone": 2,
+        "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+        "critical-threshold": 80,
+        "format-critical": "{temperatureC}°C {icon}",
+        "format": "{icon} {temperatureC}°",
+        "format-icons": ["", "", ""]
+    },
+    "network": {
+        // "interface": "wlp2*", // (Optional) To force the use of this interface
+        "format-wifi": "",
+        "format-ethernet": "󰈀",
+        "tooltip-format": "󱘖",
+        "format-linked": "",
+        "format-disconnected": "⚠",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+    },
+    "pulseaudio": {
+        // "scroll-step": 1, // %, can be a float
+        "format": "{icon} {volume}% {format_source}",
+        "format-bluetooth": "{icon} {volume}% {format_source}",
+        "format-bluetooth-muted": "{icon}󰂲 {format_source}",
+        "format-muted": "󰟎 {format_source}",
+        "format-source": " {volume}%",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "󱡏",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol --tab=3"
+    },
+    "custom/menu": {
+        "format": "{icon}",
+        "format-icons": {
+          "default": "󰣇"
+        }
+    },
+    "custom/powermenu": {
+        "format": "{icon}",
+        "format-icons": {
+          "default": ""
+        },
+        "on-click": "sh -c '~/.config/rofi/powermenu/type-4/powermenu.sh'"
+    }
+
+}
