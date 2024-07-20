@@ -18,11 +18,11 @@ uptime="`uptime -p | sed -e 's/up //g'`"
 host=`hostname`
 
 # Options
-shutdown='⏻'
-reboot=''
+shutdown="⏻ "
+reboot=' '
 lock='󰌾'
 suspend=""
-logout=''
+hibernate=' '
 yes=' '
 no=""
 
@@ -32,7 +32,7 @@ rofi_cmd() {
 		-p "Goodbye ${USER}" \
 		-mesg "Uptime: $uptime" \
 		-theme ${dir}/${theme}.rasi \
-    -config ${dir}/../../bind.rasi
+    -config ${dir}/../../bind.rasi 
 }
 
 # Confirmation CMD
@@ -41,17 +41,18 @@ confirm_cmd() {
 		-p 'Confirmation' \
 		-mesg 'Are you Sure?' \
 		-theme ${dir}/shared/confirm.rasi \
-    -config ${dir}/../../bind.rasi
+    -config ${dir}/../../bind.rasi \
+    -normal-window
 }
 
 # Ask for confirmation
 confirm_exit() {
-	echo -e "$yes\n$no" | confirm_cmd
+	echo -e "$no\n$yes" | confirm_cmd
 }
 
 # Pass variables to rofi dmenu
 run_rofi() {
-	echo -e "$lock\n$suspend\n$logout\n$reboot\n$shutdown" | rofi_cmd
+	echo -e "$lock\n$suspend\n$hibernate\n$reboot\n$shutdown" | rofi_cmd
 }
 
 # Execute Command
@@ -63,8 +64,8 @@ run_cmd() {
 		elif [[ $1 == '--reboot' ]]; then
 			systemctl reboot
 		elif [[ $1 == '--suspend' ]]; then
-			mpc -q pause
-			amixer set Master mute
+			# mpc -q pause
+			# amixer set Master mute
 			systemctl suspend
 		elif [[ $1 == '--logout' ]]; then
 			if [[ "$DESKTOP_SESSION" == 'openbox' ]]; then
@@ -78,6 +79,8 @@ run_cmd() {
       elif [[ "$XDG_SESSION_DESKTOP" == 'Hyprland' ]]; then
         hyprctl dispatch exit
 			fi
+    elif [[ $1 == "--hibernate" ]]; then
+       systemctl hibernate
 		fi
 	else
 		exit 0
@@ -108,4 +111,6 @@ case ${chosen} in
     $logout)
 		run_cmd --logout
         ;;
+    $hibernate)
+    run_cmd --hibernate
 esac

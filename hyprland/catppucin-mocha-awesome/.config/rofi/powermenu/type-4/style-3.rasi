@@ -19,7 +19,7 @@ configuration {
     mainbox-margin:              50px;
     message-margin:              0px 300px;
     message-padding:             12px;
-    message-border-radius:       12px;
+    message-border-radius:       15px;
     listview-spacing:            25px;
     element-padding:             35px 0px;
     element-border-radius:       60px;
@@ -28,7 +28,7 @@ configuration {
     textbox-font:                "JetBrainsMono Nerd Font 12";
     element-text-font:           "feather 48";
 
-    background-window:           #1e1e2ed8;
+    background-window:           rgba(30, 30, 46, 0.8);
     background-normal:           white/5%;
     background-selected:         white/15%;
     foreground-normal:           white;
@@ -42,7 +42,7 @@ window {
     anchor:                      center;
     fullscreen:                  false;
     width:                       1000px;
-    border-radius:               0px;
+    border-radius:               20px;
     cursor:                      "default";
     background-color:            var(background-window);
 }
