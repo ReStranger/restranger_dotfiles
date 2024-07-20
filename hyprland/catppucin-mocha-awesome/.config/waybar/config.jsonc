@@ -19,16 +19,18 @@
     "modules-right": [
         "pulseaudio",
         "network",
+        "hyprland/language",
         "temperature",
         "cpu",
         "memory",
-        //"keyboard-state",
+        "keyboard-state",
+        "privacy",
         "custom/powermenu"
     ],
     // Modules configuration
     "hyprland/workspaces": {
          "disable-scroll": false,
-         "format": "{icon}",
+         "format": "",
          "format-icons": {
                    "1": "󰈹",
                    "2": "",
@@ -42,17 +44,17 @@
                    "10": "",
                    "urgent": ""
      },
-         "persistent-workspaces": {    
+         /* "persistent-workspaces": {    
                    "HDMI-A-1": [ 1, 2, 3, 4, 5, 6 ],
                    "DVI-D-1": [ 7, 8, 9, 10 ]
-         },
+         }, */
          "on-scroll-up": "hyprctl dispatch workspace e+1",
          "on-scroll-down": "hyprctl dispatch workspace e-1"
     },
     "hyprland/window": {
         "format": "{title:.16}",
         "icon": true,
-        "icon-size": 18,
+        "icon-size": 20,
         "separate-outputs": true
     },
     "tray": {
@@ -61,16 +63,15 @@
     },
     "clock": {
         "format": "󰅐 {:%H:%M}",
-        // "timezone": "America/New_York",
+        // "timezone": "Europe/Moscow",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         "format-alt": "󰃭 {:%d-%m-%Y}"
     },
     "cpu": {
-        "format": " {usage}%",
-        "tooltip": false
+        "format": " {usage}%"
     },
     "memory": {
-        "format": " {}%"
+        "format": "  {}%"
     },
     "temperature": {
         "thermal-zone": 2,
@@ -120,6 +121,29 @@
           "default": ""
         },
         "on-click": "sh -c '~/.config/rofi/powermenu/type-4/powermenu.sh'"
+    },
+    "hyprland/language": {
+      "format": "󰌌 {}",
+      "format-en": "en",
+      "format-ru": "ru"
+    },
+    "privacy": {
+      "icon-spacing": 4,
+	    "transition-duration": 250,
+	    "icon-size": 13,
+    	"modules": [
+		    {
+			    "type": "screenshare",
+			    "tooltip": true,
+	        "icon-size": 18,
+			    "tooltip-icon-size": 24
+		    },
+		    {
+			    "type": "audio-in",
+			    "tooltip": true,
+			    "tooltip-icon-size": 24
+		    }
+	    ]
     }
 
 }
