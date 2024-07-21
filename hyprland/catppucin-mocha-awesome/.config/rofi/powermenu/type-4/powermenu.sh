@@ -14,7 +14,7 @@ dir="$HOME/.config/rofi/powermenu/type-4"
 theme='style-3'
 
 # CMDs
-uptime="`uptime -p | sed -e 's/up //g'`"
+uptime="`uptime -p | sed -e 's/up //g' | sed -e 's/hours/h/g' | sed -e 's/minutes/min/g' | sed -e 's/,/ |/g'`"
 host=`hostname`
 
 # Options
