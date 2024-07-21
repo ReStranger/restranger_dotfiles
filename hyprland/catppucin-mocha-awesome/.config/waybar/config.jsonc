@@ -10,13 +10,15 @@
     "modules-left": [
         "custom/menu",
         "hyprland/workspaces",
-        "hyprland/window"
+        "hyprland/window",
+        "custom/weather"
     ],
     "modules-center": [
         "clock",
         "tray"
     ],
     "modules-right": [
+        "custom/gsconnect",
         "pulseaudio",
         "network",
         "hyprland/language",
@@ -113,7 +115,8 @@
         "format": "{icon}",
         "format-icons": {
           "default": "󰣇"
-        }
+        },
+        "on-click": "~/.config/rofi/launchers/type-6/launcher_2.sh"
     },
     "custom/powermenu": {
         "format": "{icon}",
@@ -144,6 +147,22 @@
 			    "tooltip-icon-size": 24
 		    }
 	    ]
-    }
+    },
+    "custom/gsconnect" : {
+      "format": "{}",
+      "escape": true,
+      "exec": "python3 $HOME/.config/waybar/gsconnect-status.py",
+      "return-type": "json",
+      "tooltip": "{tooltip}",
+      "interval": 30,
+      "on-click": "/usr/share/gnome-shell/extensions/gsconnect@andyholmes.github.io/gsconnect-preferences"
+    },
+    "custom/weather": {
+		  "format": "{}",
+		  "interval": 10,
+		  "exec": "~/.config/waybar/scripts/weather.sh",
+		  "tooltip": false
+	}
+
 
 }
