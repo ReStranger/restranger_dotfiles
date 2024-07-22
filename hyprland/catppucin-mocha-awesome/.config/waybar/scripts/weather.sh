@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/env bash
 
 get_icon() {
     case $1 in
@@ -22,36 +22,26 @@ get_icon() {
         # *) icon="";
 
         # Icons for Font Awesome 5 Pro
-        01d) icon="";;
-        01n) icon="";;
-        02d) icon="";;
-        02n) icon="";;
-        03d) icon="";;
-        03n) icon="";;
-        04*) icon="";;
-        09*) icon="";;
-        10d) icon="";;
-        10n) icon="";;
-        11*) icon="";;
+        01d) icon="";;
+        01n) icon="󰽢";;
+        02d) icon="󰖕";;
+        02n) icon="󰖕";;
+        03d) icon="󰖕";;
+        03n) icon="󰖕";;
+        04*) icon="󰖕";;
+        09*) icon="󰖕";;
+        10d) icon="󰖕";;
+        10n) icon="󰖕";;
+        11*) icon="󰖕";;
         13*) icon="";;
-        50*) icon="";;
+        50*) icon="󰖕";;
         *) icon="";
     esac
 
     echo $icon
 }
-get_env_value() {
-    local key=$1
-    local file=$2
-    if [ -f "$file" ]; then
-        grep -oP "$key=\K.*" "$file"
-    else
-        echo ""
-    fi
-}
-ENV_FILE="$HOME/.config/waybar/scripts/.env"
-KEY=$(get_env_value "API_KEY" "$ENV_FILE")
-CITY="Novosibirsk"
+KEY="$HOME/.config/waybar/scripts/.env"
+CITY="498817"
 UNITS="metric"
 SYMBOL="°"
 
@@ -64,7 +54,7 @@ if [ -n "$CITY" ]; then
         CITY_PARAM="q=$CITY"
     fi
 
-    weather=$(curl -sf "$API/weather?appid=$KEY&$CITY_PARAM&units=$UNITS")
+    weather=$(curl -sf "$API/weather?appid=$(cat $KEY)&$CITY_PARAM&units=$UNITS")
 else
     location=$(curl -sf https://location.services.mozilla.com/v1/geolocate?key=geoclue)
 

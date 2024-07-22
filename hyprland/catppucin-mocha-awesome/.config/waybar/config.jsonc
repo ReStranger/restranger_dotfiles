@@ -151,7 +151,7 @@
     "custom/gsconnect" : {
       "format": "{}",
       "escape": true,
-      "exec": "python3 $HOME/.config/waybar/gsconnect-status.py",
+      "exec": "python3 $HOME/.config/waybar/scripts/gsconnect-status.py",
       "return-type": "json",
       "tooltip": "{tooltip}",
       "interval": 30,
