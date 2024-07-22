@@ -4,6 +4,8 @@
   font-size: 13px;
   min-height: 0;
 }
+@define-color bg-main #1e1e2e;
+@define-color text #1e1e2e;
 
 window#waybar {
   background-color: #1e1e2e;
@@ -80,7 +82,8 @@ button:hover {
 #language:hover,
 #custom-menu:hover,
 #custom-powermenu:hover,
-#custom-gsconnect:hover {
+#custom-gsconnect:hover,
+#custom-weather:hover {
   background-color: rgba(203, 166, 247, 0.9);
   color: #181825;
 }
@@ -99,7 +102,8 @@ button:hover {
 #privacy,
 #custom-menu,
 #custom-powermenu,
-#custom-gsconnect {
+#custom-gsconnect,
+#custom-weather {
   background-color: #181825;
   color: #cdd6f4;
   padding-left: 8px;
@@ -160,7 +164,7 @@ label:focus {
   color: #11111b;
 }
 #tray {
-  padding-left: 6px;
+  /*padding-left: 6px;*/
 }
 
 #tray > .passive {
@@ -190,7 +194,6 @@ label:focus {
 
 #custom-menu {
   margin-left: 5px;
-  margin-right: 5px;
   padding-right: 12px;
   letter-spacing: -1px;
   font-size: 18px;
@@ -198,7 +201,6 @@ label:focus {
   color: #74c7ec;
 }
 #custom-powermenu {
-  margin-left: 5px;
   margin-right: 5px;
   padding-right: 12px;
   background-color: #f38ba8;
@@ -208,7 +210,6 @@ label:focus {
   border: 7px solid transparent;
   background-color: #a6e3a1;
   color: #181825;
-  border-radius: 20px;
 }
 #custom-gsconnect {
   padding-left: 12px;
