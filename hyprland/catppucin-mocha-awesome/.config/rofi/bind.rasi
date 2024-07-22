@@ -8,4 +8,7 @@ configuration {
     kb-mode-complete: "Tab";
     kb-mode-previous: "Shift+Left,Control+h";
     kb-remove-char-back: "BackSpace";
+    me-select-entry: "";
+    me-accept-entry: [ MousePrimary, MouseSecondary, MouseDPrimary ];
+
 } 
