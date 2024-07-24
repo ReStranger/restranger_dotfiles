@@ -80,6 +80,7 @@ button:hover {
 #tray:hover,
 #window:hover,
 #language:hover,
+#bluetooth:hover,
 #custom-menu:hover,
 #custom-powermenu:hover,
 #custom-gsconnect:hover,
@@ -100,6 +101,7 @@ button:hover {
 #window,
 #language,
 #privacy,
+#bluetooth,
 #custom-menu,
 #custom-powermenu,
 #custom-gsconnect,
@@ -215,4 +217,9 @@ label:focus {
   padding-left: 12px;
   padding-right: 12px;
   font-size: 16px;
+}
+#bluetooth {
+  font-size: 16px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
