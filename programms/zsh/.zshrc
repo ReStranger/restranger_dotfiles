@@ -37,11 +37,6 @@ export FZF_DEFAULT_OPTS=" \
 export BAT_THEME="Catppuccin Mocha"
 
 # ZSH Settings
-if [[ -f "$HOME/.zcompdump" ]]; then
-  rm -f "$HOME/.zcompdump"
-  echo "Old zcompdump removed. New zcompdump put on $HOME/.cache/zcompdump-${ZSH_VERSION}"
-fi
-
 autoload -Uz compinit && compinit -d "$HOME/.cache/zcompdump-${ZSH_VERSION}"
 
 bindkey "^[OA" history-beginning-search-backward
@@ -74,7 +69,7 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'lsd --color=always $realpath'
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'lsd --color=always $realpath'
 
 if [[ -z $DISPLAY && $(tty) == /dev/tty1 ]]; then
-  exec bash /home/restranger/.config/hypr/scripts/nvidia_fix
+  exec bash /home/restranger/.config/hypr/scripts/nvidia_fix.sh
 fi
 
 if [[ -d "$HOME/.local/bin/platform-tools/" ]] ; then
@@ -86,7 +81,7 @@ if [[ -d "$HOME/.local/bin/" ]] ; then
 fi
 
 # DISABLE IF U USE x11 or not use alacritty-smooth-cursor-git
-if [[ -z "$WAYLAND_DISPLAY" && $TERM = "xterm-256color" ]]; then
+if [[ -z "$WAYLAND_DISPLAY" && $TERM = "xterm-256color" || $TERM = "alacritty" ]]; then
     export WAYLAND_DISPLAY=wayland-1
 fi
 
