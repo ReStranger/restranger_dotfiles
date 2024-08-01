@@ -148,6 +148,7 @@ alias rezsh_reload_config="source $HOME/.zshrc"
 alias zcr="source $HOME/.zshrc"
 
 export PATH=$PATH:/home/restranger/.spicetify
+export EDITOR=nvim
 
 eval "$(fzf --zsh)"
 eval "$(starship init zsh)"
