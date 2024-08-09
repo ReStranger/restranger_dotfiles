@@ -1,2 +1,2 @@
-#!/usr/bin/bash
+#!/usr/bin/env bash
 bash -c `source /root/nvgpu-overclock/bin/activate && python3 /root/nvgpu-overclock/overclock.py`

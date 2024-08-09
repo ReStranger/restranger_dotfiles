@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 scripts_directory="/opt/shell-color-scripts/colorscripts"
 
