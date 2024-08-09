@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 GentooEnvPath=/mnt/sda1/gentoo
 sudo mount --types proc /proc $GentooEnvPath/proc 
 sudo mount --rbind /sys $GentooEnvPath/sys

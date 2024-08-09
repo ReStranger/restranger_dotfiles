@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 nitrogen --set-zoom-fill $HOME/Pictures/Wallpapers/7d43c543989fce6428d40ad5f56a370f.jpeg --save --head=0
 cp -rf $HOME/.config/rices/kaedehara_kazuha/.gtkrc-2.0 $HOME/.gtkrc-2.0
 cp -rf $HOME/.config/rices/kaedehara_kazuha/.config/* $HOME/.config/

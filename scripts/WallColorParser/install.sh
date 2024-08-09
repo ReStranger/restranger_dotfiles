@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 git clone --depth 1 https://github.com/guillaumeboehm/wal-telegram ./src/wal-telegram
 cd src/wal-telegram/
 sudo make install PREFIX=$(pwd)/../../bin/wal-telegram
