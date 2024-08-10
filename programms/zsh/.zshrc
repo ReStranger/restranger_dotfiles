@@ -152,7 +152,7 @@ export EDITOR=nvim
 
 eval "$(fzf --zsh)"
 eval "$(starship init zsh)"
-eval "$(zoxide init --cmd cd zsh)"
+eval "$(zoxide init --cmd zcd zsh)"
 
 # pnpm
 export PNPM_HOME="/home/restranger/.local/share/pnpm"
