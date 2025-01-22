@@ -1,3 +1,0 @@
-pywal==3.3.0
-pywalfox==2.8.0rc1
-toml==0.10.2
