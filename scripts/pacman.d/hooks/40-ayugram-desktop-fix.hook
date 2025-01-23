@@ -1,0 +1,11 @@
+[Trigger]
+Operation = Upgrade
+Operation = Install
+Type = Package
+Target = ayugram-desktop-bin
+
+[Action]
+Description = Fix for opening ayugram-desktop...
+When = PostTransaction
+Exec = /etc/pacman.d/hooks/40-ayugram-desktop-fix.sh
+
