@@ -1,0 +1,9 @@
+set selection-clipboard clipboard
+set recolor true
+
+map <C-l> feedkeys ":blist <Tab>"
+map <C-m> feedkeys ":bmark"
+map <C-u> feedkeys ":bdelete "
+map i recolor
+
+include catppuccin-mocha
