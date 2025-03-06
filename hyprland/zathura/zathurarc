@@ -6,4 +6,4 @@ map <C-m> feedkeys ":bmark "
 map <C-v> feedkeys ":bdelete "
 map i recolor
 
-include catppuccin-mocha
+include zathura-gruvbox-dark
